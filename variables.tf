@@ -87,6 +87,11 @@ variable external_subnet_ids {
   default = [{ "subnet_id" = null, "public_ip" = null, "private_ip_primary" = null, "private_ip_secondary" = null }]
 }
 
+variable external_alias_ip_count {
+  description = "number of alias ips to add to external nics"
+  default     = 0
+}
+
 variable internal_subnet_ids {
   description = "The subnet id of the virtual network where the virtual machines will reside."
   type = list(object({
