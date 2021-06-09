@@ -284,7 +284,7 @@ resource "aws_network_interface" "public1" {
   subnet_id         = local.external_public_subnet_id[count.index]
   security_groups   = var.external_securitygroup_ids
   source_dest_check = var.external_source_dest_check
-  private_ips_count = 1
+  private_ips_count = 1 + var.external_alias_ip_count
   tags = {
     Name   = format("%s-%d", "BIGIP-External-Public-Interface", count.index)
     Prefix = format("%s", local.instance_prefix)
